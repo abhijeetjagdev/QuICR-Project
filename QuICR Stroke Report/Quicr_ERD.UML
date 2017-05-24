@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>f651c87f-96bd-4967-be71-6c04c43fc4d1</OriginalElement>
+  <nodes>
+    <node x="268.0" y="3575.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.auth_group</node>
+    <node x="5192.210825053706" y="332.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.transport_mode</node>
+    <node x="213.0" y="4101.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.django_session</node>
+    <node x="3503.855561895811" y="3476.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.otp_totp_totpdevice</node>
+    <node x="1247.5" y="3904.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.auth_group_permissions</node>
+    <node x="4472.855561895811" y="3904.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.otp_static_statictoken</node>
+    <node x="0.0" y="3509.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.personal_health_number_archive</node>
+    <node x="6063.294158387039" y="957.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.discharge_disposition</node>
+    <node x="684.0" y="3520.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician_works_at_site</node>
+    <node x="3806.6393964822773" y="957.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.thrombolysis_location</node>
+    <node x="2769.0528321361467" y="332.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.outcome_modality</node>
+    <node x="5390.855561895811" y="3520.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.thrombectomy_device</node>
+    <node x="6291.294158387039" y="946.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.tici_perfusion_scale</node>
+    <node x="2369.4727298156113" y="255.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient</node>
+    <node x="5420.210825053706" y="332.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_type</node>
+    <node x="3471.41447368421" y="0.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.personal_health_num_type</node>
+    <node x="3070.8060631489443" y="682.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_service_event</node>
+    <node x="5182.210825053706" y="946.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.transport_method</node>
+    <node x="3935.855561895811" y="3871.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_kpi</node>
+    <node x="3135.139396482278" y="332.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_occurrence_location</node>
+    <node x="1237.139531305941" y="3000.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.django_content_type</node>
+    <node x="2776.855561895811" y="3520.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.user_works_at_site</node>
+    <node x="4664.855561895811" y="3542.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.django_twilio_credential</node>
+    <node x="5910.710825053706" y="332.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_service_event_status</node>
+    <node x="416.0" y="3509.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient_rhrn</node>
+    <node x="778.7645313059411" y="3904.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user_groups</node>
+    <node x="4873.855561895811" y="3509.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.main_formfieldhelptext</node>
+    <node x="3335.105561895811" y="3904.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user_user_permissions</node>
+    <node x="5204.105561895811" y="3860.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient_in_clinical_trial</node>
+    <node x="6641.853368913355" y="3849.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.thrombectomy_device_used</node>
+    <node x="1344.25" y="3553.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.auth_permission</node>
+    <node x="4393.210825053706" y="1555.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_interaction</node>
+    <node x="1976.6393964822778" y="321.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.city</node>
+    <node x="5141.855561895811" y="3520.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.clinical_trial</node>
+    <node x="2232.4727298156113" y="924.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site</node>
+    <node x="4470.855561895811" y="3553.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.otp_static_staticdevice</node>
+    <node x="3889.8893964822773" y="1863.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.acute_imaging_type</node>
+    <node x="6381.210825053706" y="0.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.sex</node>
+    <node x="1644.581140350877" y="11.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.race</node>
+    <node x="0.0" y="4101.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.django_migrations</node>
+    <node x="704.0" y="4101.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.django_site</node>
+    <node x="4436.002568922306" y="935.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician</node>
+    <node x="2948.605561895811" y="3849.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.adverse_event</node>
+    <node x="4114.855561895811" y="3531.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician_type</node>
+    <node x="932.0" y="3509.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.django_admin_log</node>
+    <node x="4224.855561895811" y="3860.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician_is_physician_type</node>
+    <node x="4022.210825053706" y="2901.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user</node>
+    <node x="507.0" y="4101.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.django_twilio_caller</node>
+    <node x="3831.855561895811" y="3520.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_kpi_type</node>
+    <node x="4124.210825053706" y="2424.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.acute_imaging</node>
+    <node x="897.0" y="4101.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_report</node>
+    <node x="1872.5811403508771" y="0.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.province</node>
+    <node x="5662.710825053706" y="321.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_type</node>
+    <node x="2663.9727298156113" y="1775.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.ems_stage</node>
+    <node x="3254.855561895811" y="3520.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.two_factor_phonedevice</node>
+    <node x="5572.794158387039" y="946.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.thrombolysis_drug</node>
+    <node x="3025.855561895811" y="3531.0">f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.adverse_event_type</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician_works_at_site" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician">
+      <point x="-28.5" y="-92.5" />
+      <point x="769.5" y="2404.0" />
+      <point x="3042.4727298156113" y="2404.0" />
+      <point x="3042.4727298156113" y="1515.0" />
+      <point x="4453.716854636591" y="1515.0" />
+      <point x="-106.28571428571468" y="103.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.city" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="92.5" />
+      <point x="2090.639396482278" y="612.0" />
+      <point x="2056.0560631489443" y="612.0" />
+      <point x="2056.0560631489443" y="2851.0" />
+      <point x="4046.1274917203723" y="2851.0" />
+      <point x="-140.08333333333348" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.personal_health_num_type">
+      <point x="0.0" y="-158.5" />
+      <point x="2543.4727298156113" y="225.0" />
+      <point x="3509.41447368421" y="225.0" />
+      <point x="-76.0" y="92.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.clinical_trial" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="-57.0" y="-92.5" />
+      <point x="5198.855561895811" y="3376.0" />
+      <point x="4294.105561895811" y="3376.0" />
+      <point x="107.89473684210498" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_service_event" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="141.5999999999999" y="356.5" />
+      <point x="3566.406063148944" y="1505.0" />
+      <point x="3505.131140350877" y="1505.0" />
+      <point x="3505.131140350877" y="2731.0" />
+      <point x="4128.127491720373" y="2731.0" />
+      <point x="-58.08333333333303" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician_works_at_site" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="28.5" y="-92.5" />
+      <point x="826.5" y="3276.0" />
+      <point x="4061.0529303168637" y="3276.0" />
+      <point x="-125.15789473684208" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.sex" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="92.5" />
+      <point x="6495.210825053706" y="235.0" />
+      <point x="6529.794158387039" y="235.0" />
+      <point x="6529.794158387039" y="2871.0" />
+      <point x="4339.960825053706" y="2871.0" />
+      <point x="153.75" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.otp_static_staticdevice" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="-59.5" />
+      <point x="4557.855561895811" y="3426.0" />
+      <point x="4250.947667158969" y="3426.0" />
+      <point x="64.73684210526335" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.adverse_event" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="-31.0" y="-103.5" />
+      <point x="3041.605561895811" y="3829.0" />
+      <point x="3015.355561895811" y="3829.0" />
+      <point x="3015.355561895811" y="3346.0" />
+      <point x="4121.473982948442" y="3346.0" />
+      <point x="-64.73684210526335" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_service_event_status" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="81.5" />
+      <point x="6014.710825053706" y="662.0" />
+      <point x="6045.960825053706" y="662.0" />
+      <point x="6045.960825053706" y="2811.0" />
+      <point x="4298.960825053706" y="2811.0" />
+      <point x="112.75" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.otp_static_statictoken" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.otp_static_staticdevice">
+      <point x="0.0" y="-48.5" />
+      <point x="0.0" y="59.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient_rhrn" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient">
+      <point x="-93.0" y="-103.5" />
+      <point x="447.0" y="3226.0" />
+      <point x="408.5145313059411" y="3226.0" />
+      <point x="408.5145313059411" y="632.0" />
+      <point x="2456.4727298156113" y="632.0" />
+      <point x="-87.0" y="158.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.thrombectomy_device_used" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.thrombectomy_device">
+      <point x="-99.19999999999982" y="-103.5" />
+      <point x="6666.653368913356" y="3769.0" />
+      <point x="5504.855561895811" y="3769.0" />
+      <point x="0.0" y="92.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_interaction" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site">
+      <point x="-345.59999999999945" y="-389.5" />
+      <point x="4431.610825053706" y="1485.0" />
+      <point x="2478.1393964822782" y="1485.0" />
+      <point x="111.66666666666652" y="114.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.main_formfieldhelptext" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="62.0" y="-103.5" />
+      <point x="5059.855561895811" y="3386.0" />
+      <point x="4285.473982948442" y="3386.0" />
+      <point x="99.26315789473665" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user_groups" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="37.0" y="-48.5" />
+      <point x="889.7645313059411" y="3829.0" />
+      <point x="1190.5" y="3829.0" />
+      <point x="1190.5" y="3306.0" />
+      <point x="4086.947667158969" y="3306.0" />
+      <point x="-99.26315789473665" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_service_event" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.outcome_modality">
+      <point x="-141.5999999999999" y="-356.5" />
+      <point x="3283.2060631489444" y="592.0" />
+      <point x="2942.38616546948" y="592.0" />
+      <point x="69.33333333333348" y="81.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.adverse_event" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.adverse_event_type">
+      <point x="31.0" y="-103.5" />
+      <point x="3103.605561895811" y="3829.0" />
+      <point x="3129.855561895811" y="3829.0" />
+      <point x="0.0" y="81.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.otp_totp_totpdevice" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="-136.5" />
+      <point x="3657.855561895811" y="3406.0" />
+      <point x="4173.263456632653" y="3406.0" />
+      <point x="-12.947368421052488" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_type">
+      <point x="67.0" y="-114.5" />
+      <point x="2433.4727298156113" y="642.0" />
+      <point x="5454.877491720373" y="642.0" />
+      <point x="-69.33333333333303" y="81.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.user_works_at_site" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="28.5" y="-92.5" />
+      <point x="2919.355561895811" y="3326.0" />
+      <point x="4104.210825053706" y="3326.0" />
+      <point x="-82.0" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_service_event" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient">
+      <point x="-283.1999999999998" y="-356.5" />
+      <point x="3141.6060631489445" y="602.0" />
+      <point x="2688.4727298156113" y="602.0" />
+      <point x="145.0" y="158.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.personal_health_number_archive" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.province">
+      <point x="-93.0" y="-103.5" />
+      <point x="31.0" y="3456.0" />
+      <point x="82.0" y="3456.0" />
+      <point x="82.0" y="235.0" />
+      <point x="1901.0811403508771" y="235.0" />
+      <point x="-85.5" y="92.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient_in_clinical_trial" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_interaction">
+      <point x="85.5" y="-92.5" />
+      <point x="5403.605561895811" y="3799.0" />
+      <point x="6895.411107847748" y="3799.0" />
+      <point x="6895.411107847748" y="2404.0" />
+      <point x="4930.810825053706" y="2404.0" />
+      <point x="153.60000000000036" y="389.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.django_twilio_credential" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="-70.5" />
+      <point x="4758.855561895811" y="3416.0" />
+      <point x="4259.579246106337" y="3416.0" />
+      <point x="73.36842105263167" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.django_admin_log" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.django_content_type">
+      <point x="-62.0" y="-103.5" />
+      <point x="994.0" y="3226.0" />
+      <point x="1277.889531305941" y="3226.0" />
+      <point x="-40.75" y="48.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician_is_physician_type" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="28.5" y="-92.5" />
+      <point x="4367.355561895811" y="3829.0" />
+      <point x="4344.355561895811" y="3829.0" />
+      <point x="4344.355561895811" y="3436.0" />
+      <point x="4242.316088211601" y="3436.0" />
+      <point x="56.105263157895024" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician_works_at_site" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site">
+      <point x="-85.5" y="-92.5" />
+      <point x="712.5" y="3226.0" />
+      <point x="746.7645313059411" y="3226.0" />
+      <point x="746.7645313059411" y="2374.0" />
+      <point x="1477.1393964822782" y="2374.0" />
+      <point x="1477.1393964822782" y="1475.0" />
+      <point x="2299.4727298156113" y="1475.0" />
+      <point x="-67.0" y="114.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_type" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="81.5" />
+      <point x="5524.210825053706" y="642.0" />
+      <point x="5555.460825053706" y="642.0" />
+      <point x="5555.460825053706" y="2751.0" />
+      <point x="4257.960825053706" y="2751.0" />
+      <point x="71.75" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient_in_clinical_trial" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.clinical_trial">
+      <point x="-28.5" y="-92.5" />
+      <point x="5289.605561895811" y="3769.0" />
+      <point x="5255.855561895811" y="3769.0" />
+      <point x="0.0" y="92.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.thrombolysis_location" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="81.5" />
+      <point x="3910.6393964822773" y="1505.0" />
+      <point x="3879.3893964822773" y="1505.0" />
+      <point x="3879.3893964822773" y="2691.0" />
+      <point x="4155.460825053706" y="2691.0" />
+      <point x="-30.75" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.adverse_event_type" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="-52.0" y="-81.5" />
+      <point x="3077.855561895811" y="3356.0" />
+      <point x="4130.105561895811" y="3356.0" />
+      <point x="-56.105263157895024" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_kpi" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="-81.5" />
+      <point x="4070.355561895811" y="3436.0" />
+      <point x="4199.158193474758" y="3436.0" />
+      <point x="12.947368421052488" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.transport_mode" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="69.33333333333303" y="81.5" />
+      <point x="5365.544158387039" y="632.0" />
+      <point x="5420.710825053706" y="632.0" />
+      <point x="5420.710825053706" y="2741.0" />
+      <point x="4251.127491720373" y="2741.0" />
+      <point x="64.91666666666697" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.personal_health_number_archive" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="93.0" y="-103.5" />
+      <point x="217.0" y="3246.0" />
+      <point x="4035.1581934747583" y="3246.0" />
+      <point x="-151.0526315789475" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_interaction" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.transport_method">
+      <point x="115.19999999999982" y="-389.5" />
+      <point x="4892.410825053706" y="1505.0" />
+      <point x="5220.210825053706" y="1505.0" />
+      <point x="-76.0" y="92.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.auth_group_permissions" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.auth_group">
+      <point x="-46.25" y="-48.5" />
+      <point x="1293.75" y="3819.0" />
+      <point x="364.0" y="3819.0" />
+      <point x="32.0" y="37.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_interaction" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_service_event">
+      <point x="-268.8000000000002" y="-389.5" />
+      <point x="4508.410825053706" y="1475.0" />
+      <point x="3708.006063148944" y="1475.0" />
+      <point x="283.1999999999998" y="356.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient_rhrn" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site">
+      <point x="-31.0" y="-103.5" />
+      <point x="509.0" y="2364.0" />
+      <point x="1330.0394736842109" y="2364.0" />
+      <point x="1330.0394736842109" y="1465.0" />
+      <point x="2254.806063148945" y="1465.0" />
+      <point x="-111.66666666666652" y="114.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.province" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="85.49999999999977" y="92.5" />
+      <point x="2072.081140350877" y="215.0" />
+      <point x="2221.9727298156113" y="215.0" />
+      <point x="2221.9727298156113" y="2831.0" />
+      <point x="4059.7941583870393" y="2831.0" />
+      <point x="-126.41666666666652" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.thrombectomy_device" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="-57.0" y="-92.5" />
+      <point x="5447.855561895811" y="3346.0" />
+      <point x="4320.000298737917" y="3346.0" />
+      <point x="133.78947368421086" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_service_event" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_type">
+      <point x="141.5999999999999" y="-356.5" />
+      <point x="3566.406063148944" y="652.0" />
+      <point x="5700.710825053706" y="652.0" />
+      <point x="-76.0" y="92.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.race" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="-69.33333333333303" y="81.5" />
+      <point x="1679.247807017544" y="225.0" />
+      <point x="1319.0394736842109" y="225.0" />
+      <point x="1319.0394736842109" y="2354.0" />
+      <point x="1901.3893964822782" y="2354.0" />
+      <point x="1901.3893964822782" y="2881.0" />
+      <point x="4025.6274917203727" y="2881.0" />
+      <point x="-160.58333333333303" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.transport_method" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="92.5" />
+      <point x="5296.210825053706" y="1505.0" />
+      <point x="5330.79415838704" y="1505.0" />
+      <point x="5330.79415838704" y="2721.0" />
+      <point x="4237.460825053706" y="2721.0" />
+      <point x="51.25" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient_rhrn" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="31.0" y="-103.5" />
+      <point x="571.0" y="3256.0" />
+      <point x="4043.789772422127" y="3256.0" />
+      <point x="-142.42105263157873" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user_user_permissions" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="52.75" y="-48.5" />
+      <point x="3493.355561895811" y="3396.0" />
+      <point x="4164.631877685285" y="3396.0" />
+      <point x="-21.578947368420813" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.city">
+      <point x="-67.0" y="-114.5" />
+      <point x="2299.4727298156113" y="612.0" />
+      <point x="2166.639396482278" y="612.0" />
+      <point x="76.0" y="92.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_interaction" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.tici_perfusion_scale">
+      <point x="345.60000000000036" y="-389.5" />
+      <point x="5122.810825053706" y="1535.0" />
+      <point x="6329.294158387039" y="1535.0" />
+      <point x="-76.0" y="92.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.thrombectomy_device_used" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.thrombolysis_drug">
+      <point x="99.19999999999982" y="-103.5" />
+      <point x="6865.053368913355" y="3829.0" />
+      <point x="6928.411107847748" y="3829.0" />
+      <point x="6928.411107847748" y="1415.0" />
+      <point x="5772.294158387039" y="1415.0" />
+      <point x="85.5" y="92.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician_type" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="52.0" y="-81.5" />
+      <point x="4270.855561895811" y="3456.0" />
+      <point x="4225.052930316863" y="3456.0" />
+      <point x="38.842105263157464" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_interaction" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.discharge_disposition">
+      <point x="268.8000000000002" y="-389.5" />
+      <point x="5046.010825053706" y="1525.0" />
+      <point x="6097.960825053706" y="1525.0" />
+      <point x="-69.33333333333303" y="81.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.ems_stage" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient">
+      <point x="-92.0" y="-169.5" />
+      <point x="2755.9727298156113" y="612.0" />
+      <point x="2630.4727298156113" y="612.0" />
+      <point x="87.0" y="158.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.personal_health_number_archive" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient">
+      <point x="-31.0" y="-103.5" />
+      <point x="93.0" y="622.0" />
+      <point x="2398.4727298156113" y="622.0" />
+      <point x="-145.0" y="158.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.thrombolysis_drug" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="28.5" y="92.5" />
+      <point x="5715.294158387039" y="1515.0" />
+      <point x="5690.210825053706" y="1515.0" />
+      <point x="5690.210825053706" y="2781.0" />
+      <point x="4278.460825053706" y="2781.0" />
+      <point x="92.25" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="29.0" y="158.5" />
+      <point x="2572.4727298156113" y="632.0" />
+      <point x="2517.806063148945" y="632.0" />
+      <point x="2517.806063148945" y="2791.0" />
+      <point x="4087.1274917203723" y="2791.0" />
+      <point x="-99.08333333333348" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="67.0" y="114.5" />
+      <point x="2433.4727298156113" y="1485.0" />
+      <point x="2414.556063148945" y="1485.0" />
+      <point x="2414.556063148945" y="2811.0" />
+      <point x="4073.460825053706" y="2811.0" />
+      <point x="-112.75" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician_is_physician_type" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician_type">
+      <point x="-85.5" y="-92.5" />
+      <point x="4253.355561895811" y="3829.0" />
+      <point x="4218.855561895811" y="3829.0" />
+      <point x="0.0" y="81.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_interaction" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.thrombolysis_location">
+      <point x="-192.0" y="-389.5" />
+      <point x="4585.210825053706" y="1465.0" />
+      <point x="3979.972729815611" y="1465.0" />
+      <point x="69.33333333333348" y="81.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.ems_stage" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_service_event">
+      <point x="92.0" y="-169.5" />
+      <point x="2939.9727298156113" y="1505.0" />
+      <point x="3283.2060631489444" y="1505.0" />
+      <point x="-141.5999999999999" y="356.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient_in_clinical_trial" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="28.5" y="-92.5" />
+      <point x="5346.605561895811" y="3769.0" />
+      <point x="5380.355561895811" y="3769.0" />
+      <point x="5380.355561895811" y="3356.0" />
+      <point x="4311.368719790548" y="3356.0" />
+      <point x="125.15789473684254" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.acute_imaging" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_interaction">
+      <point x="62.0" y="-103.5" />
+      <point x="4310.210825053706" y="2404.0" />
+      <point x="4470.010825053706" y="2404.0" />
+      <point x="-307.1999999999998" y="389.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user_groups" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.auth_group">
+      <point x="-37.0" y="-48.5" />
+      <point x="815.7645313059411" y="3829.0" />
+      <point x="300.0" y="3829.0" />
+      <point x="-32.0" y="37.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_service_event" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_service_event_status">
+      <point x="283.1999999999998" y="-356.5" />
+      <point x="3708.006063148944" y="662.0" />
+      <point x="5945.377491720373" y="662.0" />
+      <point x="-69.33333333333303" y="81.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_occurrence_location" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="-69.33333333333348" y="81.5" />
+      <point x="3169.8060631489443" y="622.0" />
+      <point x="3053.4727298156113" y="622.0" />
+      <point x="3053.4727298156113" y="2761.0" />
+      <point x="4107.627491720373" y="2761.0" />
+      <point x="-78.58333333333303" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_kpi_type" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="57.0" y="-92.5" />
+      <point x="4002.855561895811" y="3426.0" />
+      <point x="4190.52661452739" y="3426.0" />
+      <point x="4.315789473684163" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.auth_permission" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.django_content_type">
+      <point x="0.0" y="-59.5" />
+      <point x="1428.25" y="3226.0" />
+      <point x="1359.389531305941" y="3226.0" />
+      <point x="40.75" y="48.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.two_factor_phonedevice" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="-92.5" />
+      <point x="3368.855561895811" y="3386.0" />
+      <point x="4156.000298737917" y="3386.0" />
+      <point x="-30.21052631578914" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.tici_perfusion_scale" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="92.5" />
+      <point x="6405.294158387039" y="1535.0" />
+      <point x="6439.877491720372" y="1535.0" />
+      <point x="6439.877491720372" y="2851.0" />
+      <point x="4326.294158387039" y="2851.0" />
+      <point x="140.08333333333303" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.outcome_modality" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="81.5" />
+      <point x="2873.0528321361467" y="632.0" />
+      <point x="2653.4727298156113" y="632.0" />
+      <point x="2653.4727298156113" y="2771.0" />
+      <point x="4100.794158387039" y="2771.0" />
+      <point x="-85.41666666666697" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_type" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="92.5" />
+      <point x="5776.710825053706" y="652.0" />
+      <point x="5811.294158387039" y="652.0" />
+      <point x="5811.294158387039" y="2791.0" />
+      <point x="4285.294158387039" y="2791.0" />
+      <point x="99.08333333333303" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.thrombectomy_device_used" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="-103.5" />
+      <point x="6765.853368913355" y="3809.0" />
+      <point x="6906.411107847748" y="3809.0" />
+      <point x="6906.411107847748" y="3316.0" />
+      <point x="4345.895035580022" y="3316.0" />
+      <point x="159.68421052631584" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_service_event" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_occurrence_location">
+      <point x="0.0" y="-356.5" />
+      <point x="3424.8060631489443" y="632.0" />
+      <point x="3308.4727298156113" y="632.0" />
+      <point x="69.33333333333348" y="81.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.django_admin_log" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="62.0" y="-103.5" />
+      <point x="1118.0" y="3296.0" />
+      <point x="4078.3160882116003" y="3296.0" />
+      <point x="-107.89473684210543" y="147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.acute_imaging_type" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="81.5" />
+      <point x="3993.8893964822773" y="2404.0" />
+      <point x="3962.6393964822773" y="2404.0" />
+      <point x="3962.6393964822773" y="2671.0" />
+      <point x="4169.127491720373" y="2671.0" />
+      <point x="-17.08333333333303" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.acute_imaging" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.acute_imaging_type">
+      <point x="-62.0" y="-103.5" />
+      <point x="4186.210825053706" y="2404.0" />
+      <point x="4063.2227298156104" y="2404.0" />
+      <point x="69.33333333333348" y="81.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.user_works_at_site" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site">
+      <point x="-85.5" y="-92.5" />
+      <point x="2805.355561895811" y="3216.0" />
+      <point x="1426.764531305941" y="3216.0" />
+      <point x="1426.764531305941" y="2384.0" />
+      <point x="1786.0143964822782" y="2384.0" />
+      <point x="1786.0143964822782" y="1485.0" />
+      <point x="2344.1393964822782" y="1485.0" />
+      <point x="-22.333333333333485" y="114.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.race">
+      <point x="-116.0" y="-158.5" />
+      <point x="2427.4727298156113" y="205.0" />
+      <point x="1817.9144736842102" y="205.0" />
+      <point x="69.33333333333326" y="81.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.patient" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.sex">
+      <point x="116.0" y="-158.5" />
+      <point x="2659.4727298156113" y="235.0" />
+      <point x="6419.210825053706" y="235.0" />
+      <point x="-76.0" y="92.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.acute_imaging">
+      <point x="-3.41666666666697" y="-147.5" />
+      <point x="4182.794158387039" y="2651.0" />
+      <point x="4155.210825053706" y="2651.0" />
+      <point x="-93.0" y="103.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.auth_group_permissions" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.auth_permission">
+      <point x="46.25" y="-48.5" />
+      <point x="-42.0" y="59.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="-70.85714285714312" y="103.5" />
+      <point x="4489.145426065163" y="1525.0" />
+      <point x="4113.710825053706" y="1525.0" />
+      <point x="4113.710825053706" y="2661.0" />
+      <point x="4175.960825053706" y="2661.0" />
+      <point x="-10.25" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician_is_physician_type" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician">
+      <point x="85.5" y="-92.5" />
+      <point x="4424.355561895811" y="3779.0" />
+      <point x="6873.411107847748" y="3779.0" />
+      <point x="6873.411107847748" y="1425.0" />
+      <point x="4666.28828320802" y="1425.0" />
+      <point x="106.28571428571468" y="103.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_kpi" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_kpi_type">
+      <point x="-89.66666666666652" y="-81.5" />
+      <point x="3980.6888952291447" y="3829.0" />
+      <point x="3945.855561895811" y="3829.0" />
+      <point x="0.0" y="92.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.personal_health_num_type" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="76.0" y="92.5" />
+      <point x="3661.41447368421" y="215.0" />
+      <point x="3796.1393964822773" y="215.0" />
+      <point x="3796.1393964822773" y="2711.0" />
+      <point x="4141.794158387039" y="2711.0" />
+      <point x="-44.41666666666697" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_interaction" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.thrombolysis_drug">
+      <point x="192.0" y="-389.5" />
+      <point x="4969.210825053706" y="1515.0" />
+      <point x="5601.294158387039" y="1515.0" />
+      <point x="-85.5" y="92.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.adverse_event" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.stroke_service_event">
+      <point x="-93.0" y="-103.5" />
+      <point x="2979.605561895811" y="3829.0" />
+      <point x="1522.75" y="3829.0" />
+      <point x="1522.75" y="2394.0" />
+      <point x="1917.8893964822782" y="2394.0" />
+      <point x="1917.8893964822782" y="1495.0" />
+      <point x="3141.6060631489445" y="1495.0" />
+      <point x="-283.1999999999998" y="356.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.acute_imaging" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="93.0" y="103.5" />
+      <point x="4341.210825053706" y="2671.0" />
+      <point x="4203.294158387039" y="2671.0" />
+      <point x="17.08333333333303" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.transport_method" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.transport_mode">
+      <point x="0.0" y="-92.5" />
+      <point x="0.0" y="81.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user_user_permissions" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.auth_permission">
+      <point x="-52.75" y="-48.5" />
+      <point x="3387.855561895811" y="3819.0" />
+      <point x="1470.25" y="3819.0" />
+      <point x="42.0" y="59.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_interaction" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="-153.60000000000036" y="389.5" />
+      <point x="4623.610825053705" y="2404.0" />
+      <point x="4694.9075940409075" y="2404.0" />
+      <point x="4694.9075940409075" y="2691.0" />
+      <point x="4216.960825053706" y="2691.0" />
+      <point x="30.75" y="-147.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.thrombectomy_device_used" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_interaction">
+      <point x="49.600000000000364" y="-103.5" />
+      <point x="6815.453368913355" y="3819.0" />
+      <point x="6917.411107847748" y="3819.0" />
+      <point x="6917.411107847748" y="2394.0" />
+      <point x="5084.410825053706" y="2394.0" />
+      <point x="307.1999999999998" y="389.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.site_interaction" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.physician">
+      <point x="-38.399999999999636" y="-389.5" />
+      <point x="4738.810825053706" y="1445.0" />
+      <point x="4595.431140350877" y="1445.0" />
+      <point x="35.42857142857156" y="103.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.city" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.province">
+      <point x="0.0" y="-92.5" />
+      <point x="2090.639396482278" y="235.0" />
+      <point x="1958.0811403508771" y="235.0" />
+      <point x="-28.5" y="92.5" />
+    </edge>
+    <edge source="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.discharge_disposition" target="f651c87f-96bd-4967-be71-6c04c43fc4d1.TABLE:quicrdb.quicr_user">
+      <point x="0.0" y="81.5" />
+      <point x="6167.294158387039" y="1525.0" />
+      <point x="6198.544158387039" y="1525.0" />
+      <point x="6198.544158387039" y="2831.0" />
+      <point x="4312.627491720373" y="2831.0" />
+      <point x="126.41666666666697" y="-147.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.20495283018867924" x="3504.0" y="2110.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+

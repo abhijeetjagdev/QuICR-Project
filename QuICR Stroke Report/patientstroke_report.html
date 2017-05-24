@@ -1,0 +1,496 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% load user_filters %}
+{% block title %}Acute Stroke 72 Hour Report{% endblock title %}
+{% block styling %}{{ block.super }}
+{% endblock styling %}
+{% block javascript %}{{ block.super }}
+<script>
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+</script>
+<!--Table Borders-->
+<script>
+    $('tbody, th, td, tr').css('border', '2px solid #dddddd');
+</script>
+
+<!--High Charts Script-->
+<script src="{% static 'highcharts/js/highcharts.js'%}"></script>
+<!--<script src="https://highcharts.github.io/pattern-fill/pattern-fill-v2.js"></script>-->
+
+<!--AJAX Call for the Thrombolysis and Endovascular Charts-->
+<script>
+    $(function() {
+        $.ajax({
+            type:"GET",
+            url: "{% url 'get_chart_data' %}",
+            datatype: "json",
+            data: { "stroke_id": {{ object.id }}},
+            success: function(data)
+            {
+                var data = JSON.parse(data);
+                    thrombolysisPerformanceChart(data.tdata);
+                    endovascularPerformanceChart(data.edata);
+                    inpatientthrombolysisPerformanceChart(data.tdata);
+                    inpatientendovascularPerformanceChart(data.edata);
+            }
+        });
+    });
+</script>
+
+<!--Thrombolysis Performance Chart-->
+<script>
+    function thrombolysisPerformanceChart(tdata)
+    {
+        $('#ThrombolysisPerformanceChart').highcharts({
+            chart: {
+                type: 'bar',
+                height: 175,
+                width: 307,
+            },
+            title: {
+                text: 'Thrombolysis',
+                style: {
+                    "fontSize": "20px"
+                }
+            },
+            xAxis: {
+                categories: tdata.Categories,
+                labels: {
+                    style: {
+                        fontSize: '15px',
+                        fontWeight: 'bold',
+                    }
+                }
+            },
+            yAxis: {
+                allowDecimals: false,
+                min: 0,
+                minRange: tdata.ThrombolysisSiteData.DTNTarget,
+                title: {
+                    text: 'Time (min)'
+                },
+                labels: {
+                    formatter: function(){
+                        return Math.abs(this.value);
+                    }
+                },
+                plotLines: [{
+                    value: tdata.ThrombolysisSiteData.DTNTarget,
+                    color: 'red',
+                    dashStyle: 'shortdash',
+                    width: 3,
+                    zIndex: 5,
+                    label: {
+                        text: 'DTN Target',
+                        rotation: 360,
+                        x: -30,
+                        y: -10,
+                        style: {
+                            color: 'red',
+                            fontWeight: 'bold',
+                            fontSize: 12
+                        }
+                    }
+                }]
+            },
+            legend: {
+                reversed: true,
+                verticalAlign: 'top',
+                y: 15,
+                floating: false
+            },
+            plotOptions: {
+                series: {
+                    events: {
+                        legendItemClick: function () {
+                            return false;
+{#                            var visibility = this.visible ? 'visible' : 'hidden';#}
+{#                            if (!confirm('The series is currently ' +#}
+{#                                     visibility + '. Do you want to change that?')) {#}
+{#                                return false;#}
+{#                            }#}
+                        }
+                    },
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: true,
+
+                        formatter: function() {
+                            return Math.abs(this.y)
+                        },
+                        align: 'right',
+                        color: 'black',
+                        x: -10,
+                        borderRadius: 5,
+                        backgroundColor: 'rgba(252, 255, 197, 0.7)',
+                        borderWidth: 1,
+                        borderColor: '#AAA',
+                    },
+                    pointPadding: 0.1,
+                    groupPadding: 0
+                }
+            },
+            tooltip: {
+                formatter: function(){
+                    return this.series.name + ': ' + Math.abs(this.y)
+                }
+            },
+            series: [{
+                name: 'CT to Needle',
+                data: tdata.ThrombolysisSiteData.CTToNeedle.data,
+                color: '#c98286'
+            }, {
+                name: 'Door to CT',
+                data: tdata.ThrombolysisSiteData.ThrombolysisDoorToCT.data,
+                color: '#1B2738'
+            //}, {
+            //    name: 'Door to Needle Goal',
+            //    type: 'scatter',
+            //    visible: true,
+            //    marker: {
+            //        enabled: false
+            //    },
+            //    data: [tdata.ThrombolysisSiteData.DTNTarget]
+            }]
+        });
+    }
+</script>
+
+<!--Endovascular Performance Chart-->
+<script>
+    function endovascularPerformanceChart(edata)
+    {
+        $('#EndovascularPerformanceChart').highcharts({
+            chart: {
+                type: 'bar',
+                height: 175,
+                width: 307,
+            },
+            title: {
+                text: 'Endovascular',
+                margin: 50,
+                style: {
+                    "fontSize": "20px"
+                }
+            },
+            xAxis: {
+                categories: edata.Categories,
+                labels: {
+                    style: {
+                        fontSize: '15px',
+                        fontWeight: 'bold',
+                }
+                    }
+            },
+            yAxis: {
+                allowDecimals: false,
+                minRange: edata.EndovascularSiteData.GroinPunctureToFirstReperfusion,
+                labels: {
+                    formatter: function(){
+                        return Math.abs(this.value);
+                    }
+                },
+                title: {
+                    text: 'Time (min)',
+                },
+                plotLines: [{
+                    value: edata.EndovascularSiteData.CTGPTarget,
+                    color: 'red',
+                    dashStyle: 'shortdash',
+                    width: 3,
+                    zIndex: 5,
+                    label: {
+                        text: 'Puncture Target',
+                        align: 'left',
+                        rotation: 360,
+                        x: -30,
+                        y: -10,
+                        style: {
+                            color: 'red',
+                            fontWeight: 'bold',
+                            fontSize: 12
+                        }
+                    }
+                }, {
+                    value: 0,
+                    color: 'black',
+                    dashStyle: 'solid',
+                    width: 3,
+                    zIndex: 5,
+                }]
+            },
+            legend: {
+                reversed: true,
+                verticalAlign: 'top',
+                y: 15,
+                floating: false
+            },
+            credits: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    events: {
+                        legendItemClick: function () {
+                            return false;
+{#                            var visibility = this.visible ? 'visible' : 'hidden';#}
+{#                            if (!confirm('The series is currently ' +#}
+{#                                     visibility + '. Do you want to change that?')) {#}
+{#                                return false;#}
+{#                            }#}
+                        }
+                    },
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: true,
+                        formatter: function() {
+                            return Math.abs(this.y)
+                        },
+                        align: 'right',
+                        color: 'black',
+                        x: -10,
+                        borderRadius: 5,
+                        backgroundColor: 'rgba(252, 255, 197, 0.7)',
+                        borderWidth: 1,
+                        borderColor: '#AAA',
+                    },
+                    pointPadding: 0.1,
+                    groupPadding: 0
+                }
+            },
+            tooltip: {
+                formatter: function(){
+                    return this.series.name + ': ' + Math.abs(this.y)
+                }
+            },
+            series: [{
+                name: 'Puncture to 1st Reperfusion',
+                data: edata.EndovascularSiteData.GroinPunctureToFirstReperfusion.data,
+                color: '#a5b599'
+            }, {
+                name: 'CT to Puncture',
+                data: edata.EndovascularSiteData.CTToGroinPuncture.data,
+                color: '#806470'
+            }, {
+                name: 'Door to CT',
+                data: edata.EndovascularSiteData.EndovascularDoorToCT.data,
+                color: '#1B2738'
+            }]
+        });
+    }
+</script>
+
+<!--Thrombolysis Performance Chart (In-Patient)-->
+<script>
+    function inpatientthrombolysisPerformanceChart(tdata)
+    {
+        $('#InPatientThrombolysisPerformanceChart').highcharts({
+            chart: {
+                type: 'bar',
+                height: 175,
+                width: 307,
+            },
+            title: {
+                text: 'Thrombolysis',
+                style: {
+                    "fontSize": "20px"
+                }
+            },
+            xAxis: {
+                categories: tdata.Categories,
+                labels: {
+                    style: {
+                        fontSize: '15px',
+                        fontWeight: 'bold',
+                    }
+                }
+            },
+            yAxis: {
+                allowDecimals: false,
+                min: 0,
+                minRange: tdata.ThrombolysisSiteData.DTNTarget,
+                title: {
+                    text: 'Time (min)'
+                },
+                labels: {
+                    formatter: function(){
+                        return Math.abs(this.value);
+                    }
+                },
+            },
+            legend: {
+                reversed: true,
+                verticalAlign: 'top',
+                y: 15,
+                floating: false
+            },
+            plotOptions: {
+                series: {
+                    events: {
+                        legendItemClick: function () {
+                            return false;
+                        }
+                    },
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: true,
+
+                        formatter: function() {
+                            return Math.abs(this.y)
+                        },
+                        align: 'right',
+                        color: 'black',
+                        x: -10,
+                        borderRadius: 5,
+                        backgroundColor: 'rgba(252, 255, 197, 0.7)',
+                        borderWidth: 1,
+                        borderColor: '#AAA',
+                    },
+                    pointPadding: 0.1,
+                    groupPadding: 0
+                }
+            },
+            tooltip: {
+                formatter: function(){
+                    return this.series.name + ': ' + Math.abs(this.y)
+                }
+            },
+            series: [{
+                name: 'CT to Needle',
+                data: tdata.ThrombolysisSiteData.CTToNeedle.data,
+                color: '#b65459'
+            }]
+        });
+    }
+</script>
+
+<!--Endovascular Performance Chart (In-Patient)-->
+<script>
+    function inpatientendovascularPerformanceChart(edata)
+    {
+        $('#InPatientEndovascularPerformanceChart').highcharts({
+            chart: {
+                type: 'bar',
+                height: 175,
+                width: 307,
+            },
+            title: {
+                text: 'Endovascular',
+                margin: 50,
+                style: {
+                    "fontSize": "20px"
+                }
+            },
+            xAxis: {
+                categories: edata.Categories,
+                labels: {
+                    style: {
+                        fontSize: '15px',
+                        fontWeight: 'bold',
+                }
+                    }
+            },
+            yAxis: {
+                allowDecimals: false,
+                minRange: edata.EndovascularSiteData.GroinPunctureToFirstReperfusion,
+                labels: {
+                    formatter: function(){
+                        return Math.abs(this.value);
+                    }
+                },
+                title: {
+                    text: 'Time (min)'
+                },
+                plotLines: [{
+                    value: edata.EndovascularSiteData.CTGPTarget,
+                    color: 'red',
+                    dashStyle: 'shortdash',
+                    width: 3,
+                    zIndex: 5,
+                    label: {
+                        text: 'Puncture Target',
+                        align: 'left',
+                        rotation: 360,
+                        x: -30,
+                        y: -10,
+                        style: {
+                            color: 'red',
+                            fontWeight: 'bold',
+                            fontSize: 12
+                        }
+                    }
+                }, {
+                    value: 0,
+                    color: 'black',
+                    dashStyle: 'solid',
+                    width: 3,
+                    zIndex: 5,
+                }]
+            },
+            legend: {
+                reversed: true,
+                verticalAlign: 'top',
+                y: 15,
+                floating: false
+            },
+            credits: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    events: {
+                        legendItemClick: function () {
+                            return false;
+                        }
+                    },
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: true,
+                        formatter: function() {
+                            return Math.abs(this.y)
+                        },
+                        align: 'right',
+                        color: 'black',
+                        x: -10,
+                        borderRadius: 5,
+                        backgroundColor: 'rgba(252, 255, 197, 0.7)',
+                        borderWidth: 1,
+                        borderColor: '#AAA',
+                    },
+                    pointPadding: 0.1,
+                    groupPadding: 0
+                }
+            },
+            tooltip: {
+                formatter: function(){
+                    return this.series.name + ': ' + Math.abs(this.y)
+                }
+            },
+            series: [{
+                name: 'Puncture to 1st Reperfusion',
+                data: edata.EndovascularSiteData.GroinPunctureToFirstReperfusion.data,
+                color: '#a5b599'
+            }, {
+                name: 'CT to Puncture',
+                data: edata.EndovascularSiteData.CTToGroinPuncture.data,
+                color: '#806470'
+            }]
+        });
+    }
+</script>
+
+{% endblock javascript %}
+{% block content %}
+
+{% include 'main/quicr_breadcrumb.html' with active_text=object patient=object.patient stroke_service_event=None %}
+
+{% include 'main/patient_report_snippet.html' with patientstroke_data=view.patientstroke_data %}
+{% endblock content %}

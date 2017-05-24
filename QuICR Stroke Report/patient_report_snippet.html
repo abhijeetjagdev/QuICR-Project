@@ -1,0 +1,531 @@
+{% load staticfiles %}
+<input type="button" onclick="printDiv('printarea')" value="Print" style="float:right;">
+
+<div id="printarea">
+
+    <div id="printmargin"></div>
+
+    <div class="container-fluid">
+
+        <!--Report Overview-->
+        <div class="row">
+            <div class="col-xs-2">
+                <div class="row">
+                    <div class="col-xs-6" id="ahs_logo_container">
+                        <img id="quicr_logo" alt ="QuICR Logo" src="{% static 'img/QuICR-Col.png' %}" class="img-responsive">
+                    </div>
+                    <div class="col-xs-6" id="ahs_logo_container">
+                        <img id="quicr_logo" alt="AHS Logo" src="{% static 'img/ahs_logo.png' %}" class="img-responsive">
+                        <h3 id="chs_scn_label"><strong>Cardiovascular Health & Stroke SCN</strong></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="row">
+                    <div class="col-xs-6" id="ahs_logo_container">
+                        <img id="quicr_logo" alt ="Covenant Logo" src="{% static 'img/covenant_health.png' %}" class="img-responsive">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6" id="ahs_logo_container">
+{#                        <img id="quicr_logo" alt ="PNHR Logo" src="{% static 'img/pnhr_logo.png' %}" class="img-responsive">#}
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="caption text-center">
+                    <br />
+                    <h1 id="report_title">Acute Stroke<br />72-Hour Report</h1>
+                    {%  if patientstroke_data.inpatient_check %}
+                        <br>
+                        <h2 id="in_patient_tag">Stroke Occurred In Hospital</h2>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="caption text-right">
+                    <h2 id="patient_name">{{patientstroke_data.sse.patient.last_name}}, {{patientstroke_data.sse.patient.first_name}}</h2>
+                    <p id="patient_tag">
+                        <strong>Birthdate</strong>: {{patientstroke_data.sse.patient.date_of_birth}}<br />
+                        <strong>PHN</strong>: {{patientstroke_data.sse.patient.personal_health_num}}
+                            {% if not patientstroke_data.sse.patient.personal_health_num_type.id == 1 %}
+                                (<em>{{patientstroke_data.sse.patient.personal_health_num_type}}</em>)<br />
+                            {% elif patientstroke_data.sse.patient.personal_health_num_type.id == 1 %}
+                                <br />
+                            {% endif %}
+                        {% for site in patientstroke_data.siteset|slice:"1" %}
+                            <strong>MRN(s)</strong>: {{site.patient_hospital_num}} <em>({{site.site.code}})</em> <br />
+                        {% endfor %}
+                        {% for site in patientstroke_data.siteset|slice:"1:" %}
+                            {{site.patient_hospital_num}} <em>({{site.site.code}})</em><br />
+                        {% endfor %}
+                 </div>
+            </div>
+        </div>
+
+        <!--Patient Information-->
+        <div class="row">
+            <hr class="style1">
+            <div class="col-xs-7">
+                <div class="caption text-left">
+                    <h2 id="treatment_tag">
+                    {% if patientstroke_data.thrombolysis_drug and patientstroke_data.endovascular_administered %}
+                        {{patientstroke_data.thrombolysis_drug}}&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Endovascular
+                    {% elif patientstroke_data.thrombolysis_drug and not patientstroke_data.endovascular_administered %}
+                        {{patientstroke_data.thrombolysis_drug}}
+                    {% elif not patientstroke_data.thrombolysis_drug and patientstroke_data.endovascular_administered %}
+                        Endovascular
+                    {% else %}
+                        No Treatment Administered
+                    {% endif %}
+                    </h2>
+                </div>
+            </div>
+            <div class="col-xs-5">
+                <div class="caption text-right">
+                    <div id="onset_info">
+                        <strong>Stroke Onset</strong>:
+                        {% if patientstroke_data.sse.stroke_occurrence_datetime %}
+                            {{patientstroke_data.sse.stroke_occurrence_datetime}}<br />
+                        {% else %}
+                            No Recorded Stroke<br />
+                        {% endif %}
+                        <strong>Pretreatment NIHSS</strong>:
+                        {% if patientstroke_data.first_pretreatment_nihss %}
+                            {{patientstroke_data.first_pretreatment_nihss}}
+                        {% elif not patientstroke_data.sse.stroke_occurrence_datetime %}
+                            No Recorded Stroke
+                        {% elif patientstroke_data.sse.stroke_occurrence_datetime and not patientstroke_data.first_pretreatment_nihss %}
+                            Not Recorded
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Metrics Information-->
+        {% if patientstroke_data.thrombolysis_dct_check or patientstroke_data.ctn_check or patientstroke_data.endovascular_administered %}
+            <hr class="style1">
+            <div class="row">
+            {% if not patientstroke_data.inpatient_check %}
+                <div id="treatment_border" class="col-xs-6">
+                    {% if patientstroke_data.thrombolysis_dct_check or patientstroke_data.ctn_check %}
+                            <div class="col-xs-12" id="ThrombolysisPerformanceChart"></div>
+                            <div class="col-xs-12">
+                                {% for site in patientstroke_data.siteset %}
+                                {% if site.thrombolysis_administered %}
+                                    <h4 id="metrics_site_name">{{site.site}} ({{site.site.code}})</h4>
+                                    <table class="table table-bordered table-condensed" id="metrics_table">
+                                        <tbody>
+                                            {% if site.door_to_ct %}
+                                                <tr>
+                                                    <td><strong>Door to CT</strong> (Target = {{patientstroke_data.dct_target_value}} min)</td>
+                                                    <td>{{site.door_to_ct}} min</td>
+                                                    {% if site.door_to_ct <= patientstroke_data.dct_target_value %}
+                                                    <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+                                                    {% elif site.door_to_ct > patientstroke_data.dct_target_value %}
+                                                    <td>Not Met</td>
+                                                    {% endif %}
+                                                </tr>
+                                            {% endif %}
+                                            {% if site.ct_to_needle %}
+                                                <tr>
+                                                    <td><strong>CT to Needle</strong> (Target = {{patientstroke_data.ctn_target_value}} min)</td>
+                                                    <td>{{site.ct_to_needle}} min</td>
+                                                    {% if site.ct_to_needle <= patientstroke_data.ctn_target_value %}
+                                                    <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+                                                    {% elif site.ct_to_needle > patientstroke_data.ctn_target_value %}
+                                                    <td>Not Met</td>
+                                                    {% endif %}
+                                                </tr>
+                                            {% endif %}
+                                            {% if site.door_to_needle %}
+                                                <tr>
+                                                    <td><strong>Door to Needle</strong> (Target = {{patientstroke_data.dtn_target_value}} min)</td>
+                                                    <td>{{site.door_to_needle}} min</td>
+                                                        {% if site.door_to_needle <= patientstroke_data.dtn_target_value %}
+                                                    <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+                                                        {% elif site.door_to_needle > patientstroke_data.dtn_target_value %}
+                                                    <td>Not Met</td>
+                                                        {% endif %}
+                                                </tr>
+                                            {% endif %}
+                                        </tbody>
+                                    </table>
+                                    <br />
+                                {% endif %}
+                            {% endfor %}
+                            </div>
+                    {% endif %}
+                </div>
+                <div id="treatment_border" class="col-xs-6">
+                    {% if patientstroke_data.endovascular_dct_check or patientstroke_data.ctgp_check or patientstroke_data.gpfr_check %}
+                        <div class="col-xs-12" id="EndovascularPerformanceChart"></div>
+                        <div class="col-xs-12">
+                            {% for site in patientstroke_data.siteset %}
+                                {% if site.endovascular_administered %}
+                                    <h4 id="metrics_site_name">{{site.site}} ({{site.site.code}})</h4>
+                                    <table class="table table-bordered table-condensed" id="metrics_table">
+                                        <tbody>
+                                            {% if site.door_to_ct %}
+                                                <tr>
+                                                    <td><strong>Door to CT</strong> (Target = {{patientstroke_data.dct_target_value}} min)</td>
+                                                    <td>{{site.door_to_ct}} min</td>
+                                                    {% if site.door_to_ct <= patientstroke_data.dct_target_value %}
+                                                    <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+                                                    {% elif site.door_to_ct > patientstroke_data.dct_target_value %}
+                                                    <td>Not Met</td>
+                                                    {% endif %}
+                                                </tr>
+                                            {% endif %}
+                                            {% if site.ct_to_groinpuncture %}
+                                                <tr>
+                                                    <td><strong>CT to Puncture</strong> (Target = {{patientstroke_data.ctgp_target_value}} min)</td>
+                                                    <td>{{site.ct_to_groinpuncture}} min</td>
+                                                    {% if site.ct_to_groinpuncture <= patientstroke_data.ctgp_target_value %}
+                                                    <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+                                                    {% elif site.ct_to_groinpuncture > patientstroke_data.ctgp_target_value %}
+                                                    <td>Not Met</td>
+                                                    {% endif %}
+                                                </tr>
+                                            {% endif %}
+                                            {% if site.groinpuncture_to_firstreperfusion %}
+                                                <tr>
+                                                    <td><strong>Puncture to Reperfusion</strong> (Target = {{patientstroke_data.gpfr_target_value}} min)</td>
+                                                    <td>{{site.groinpuncture_to_firstreperfusion}} min</td>
+                                                        {% if site.groinpuncture_to_firstreperfusion <= patientstroke_data.gpfr_target_value %}
+                                                    <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+                                                        {% elif site.groinpuncture_to_firstreperfusion > patientstroke_data.gpfr_target_value %}
+                                                    <td>Not Met</td>
+                                                        {% endif %}
+                                                </tr>
+                                            {% endif %}
+                                            {% if site.ct_to_firstreperfusion %}
+                                                <tr>
+                                                    <td><strong>CT to 1st Reperfusion</strong> (Target = {{patientstroke_data.ctfr_target_value}} min)</td>
+                                                    <td>{{site.ct_to_firstreperfusion}} min</td>
+                                                        {% if ct_to_firstreperfusion <= patientstroke_data.ctfr_target_value %}
+                                                    <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+                                                        {% elif ct_to_firstreperfusion > patientstroke_data.ctfr_target_value %}
+                                                    <td>Not Met</td>
+                                                        {% endif %}
+                                                </tr>
+                                            {% endif %}
+                                        </tbody>
+                                    </table>
+                                    <br />
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+            {% if patientstroke_data.inpatient_check %}
+                <div id="treatment_border" class="col-xs-6">
+                    {% if patientstroke_data.thrombolysis_dct_check or patientstroke_data.ctn_check %}
+                            <div class="col-xs-12" id="InPatientThrombolysisPerformanceChart"></div>
+                            <div class="col-xs-12">
+                                {% for site in patientstroke_data.siteset %}
+                                    {% if site.thrombolysis_administered %}
+                                        <h4 id="metrics_site_name">{{site.site}} ({{site.site.code}})</h4>
+                                        <table class="table table-bordered table-condensed" id="metrics_table">
+                                            <tbody>
+                                                {% if site.ct_to_needle %}
+                                                    <tr>
+                                                        <td><strong>CT to Needle</strong> (Target = {{patientstroke_data.ctn_target_value}} min)</td>
+                                                        <td>{{site.ct_to_needle}} min</td>
+                                                        {% if site.ct_to_needle <= patientstroke_data.ctn_target_value %}
+                                                        <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+                                                        {% elif site.ct_to_needle > patientstroke_data.ctn_target_value %}
+                                                        <td>Not Met</td>
+                                                        {% endif %}
+                                                    </tr>
+                                                {% endif %}
+                                            </tbody>
+                                        </table>
+                                        <br />
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                    {% endif %}
+                </div>
+                <div id="treatment_border" class="col-xs-6">
+                    {% if patientstroke_data.endovascular_dct_check or patientstroke_data.ctgp_check or patientstroke_data.gpfr_check %}
+                        <div class="col-xs-12" id="InPatientEndovascularPerformanceChart"></div>
+                        <div class="col-xs-12">
+                            {% for site in patientstroke_data.siteset %}
+                                {% if site.endovascular_administered %}
+                                    <h4 id="metrics_site_name">{{site.site}} ({{site.site.code}})</h4>
+                                    <table class="table table-bordered table-condensed" id="metrics_table">
+                                        <tbody>
+                                            {% if site.ct_to_groinpuncture %}
+                                                <tr>
+                                                    <td><strong>CT to Puncture</strong> (Target = {{patientstroke_data.ctgp_target_value}} min)</td>
+                                                    <td>{{site.ct_to_groinpuncture}} min</td>
+                                                    {% if site.ct_to_groinpuncture <= patientstroke_data.ctgp_target_value %}
+                                                    <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+                                                    {% elif site.ct_to_groinpuncture > patientstroke_data.ctgp_target_value %}
+                                                    <td>Not Met</td>
+                                                    {% endif %}
+                                                </tr>
+                                            {% endif %}
+                                            {% if site.groinpuncture_to_firstreperfusion %}
+                                                <tr>
+                                                    <td><strong>Puncture to Reperfusion</strong> (Target = {{patientstroke_data.gpfr_target_value}} min)</td>
+                                                    <td>{{site.groinpuncture_to_firstreperfusion}} min</td>
+                                                        {% if site.groinpuncture_to_firstreperfusion <= patientstroke_data.gpfr_target_value %}
+                                                    <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+                                                        {% elif site.groinpuncture_to_firstreperfusion > patientstroke_data.gpfr_target_value %}
+                                                    <td>Not Met</td>
+                                                        {% endif %}
+                                                </tr>
+                                            {% endif %}
+                                            {% if site.ct_to_firstreperfusion %}
+                                                <tr>
+                                                    <td><strong>CT to 1st Reperfusion</strong> (Target = {{patientstroke_data.ctfr_target_value}} min)</td>
+                                                    <td>{{site.ct_to_firstreperfusion}} min</td>
+                                                        {% if ct_to_firstreperfusion <= patientstroke_data.ctfr_target_value %}
+                                                    <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+                                                        {% elif ct_to_firstreperfusion > patientstroke_data.ctfr_target_value %}
+                                                    <td>Not Met</td>
+                                                        {% endif %}
+                                                </tr>
+                                            {% endif %}
+                                        </tbody>
+                                    </table>
+                                    <br />
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+            </div>
+        {% endif %}
+
+        <!--Post May 27, 2016-->
+        <!--Site Information-->
+        <div class="row">
+            <hr class="style1">
+                <div id="sites_border" class="col-xs-6">
+                    {% for site in patientstroke_data.siteset %}
+                        {% if site.thrombolysis_administered %}
+                            <div class="caption" style="text-align: center;">
+                                <div class="col-xs-4">
+                                    <h2 id="site_name"><span class="label label-default">{{site.site.code}}</span></h2>
+                                </div>
+                                <div class="col-xs-8" id="site_arrival_discharge_datetime">
+                                    <strong>Arrived:</strong> ({{ site.arrival_datetime }})<br /><strong>Discharged:</strong>({{ site.discharge_datetime }})
+                                </div>
+                            </div>
+                            <div class="col-xs-5" style="padding-right: 15px; padding-left:50px; display:inline;">
+                                <h3 id="acute_imaging_title"><strong>Imaging</strong><br />First Slice</h3>
+                                {% for ai in site.acuteimaging_set.all %}
+                                    <h3 id="acute_imaging_name"> <span class="label label-info">{{ai.acute_imaging_type.name}}</span> </h3>
+                                    {% if ai.first_image_datetime %}
+                                        <h4 id="details">{{ai.first_image_datetime}}<br /></h4>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div id="details" class="col-xs-7">
+                                <h3 id="treatment_title"><strong>Treatment</strong></h3>
+                                {% if site.thrombolysis_drug %}
+                                    <h3 id="treatment_name"><span class="label label-info">{{site.thrombolysis_drug}}</span></h3>
+                                {% endif %}
+                                {% if site.thrombolysis_datetime %}
+                                    {{site.thrombolysis_datetime}}<br />
+                                {% endif %}
+                                {% if site.thrombolysis_physician %}
+                                    <strong>Physician</strong>: {{site.thrombolysis_physician}}<br />
+                                {% endif %}
+                                {% if site.thrombolysis_location %}
+                                    <strong>Location</strong>: {{site.thrombolysis_location}}<br />
+                                {% endif %}
+                                {% if site.treatment_with_telemedicine %}
+                                    <strong>Telemedicine</strong>: <span class="glyphicon glyphicon-ok-sign" style="color:green"> </span><br />
+                                {%  elif site.treatment_with_telemedicine == None %}
+                                    <strong>Telemedicine</strong>: UTD<br />
+                                {% else %}
+                                    <strong>Telemedicine</strong>: <span class="glyphicon glyphicon-remove-sign" style="color:red"></span><br />
+                                {% endif %}
+                                <p style="display:inline"><strong>Processes</strong>:</p>
+                                <table class="table table-bordered table-condensed" id="process_table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Team Pre-notified by EMS</td>
+                                            <td>
+                                                {% if site.stroke_team_prenotified %}
+                                                    <span class="glyphicon glyphicon-ok-sign" style="color:green"></span>
+                                                {% elif site.stroke_team_prenotified == None %}
+                                                    UTD
+                                                {% else %}
+                                                    <span class="glyphicon glyphicon-remove-sign" style="color:red"></span>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Direct to CT</td>
+                                            <td>
+                                                {% if site.direct_to_ct %}
+                                                    <span class="glyphicon glyphicon-ok-sign " style="color:green"></span>
+                                                {% elif site.direct_to_ct == None %}
+                                                    UTD
+                                                {% else %}
+                                                    <span class="glyphicon glyphicon-remove-sign" style="color:red"></span>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Patient Registered as Unknown</td>
+                                            <td>
+                                                {% if site.patient_admitted_as_unknown %}
+                                                    <span class="glyphicon glyphicon-ok-sign" style="color:green"></span>
+                                                {% elif site.patient_admitted_as_unknown == None %}
+                                                    UTD
+                                                {% else %}
+                                                    <span class="glyphicon glyphicon-remove-sign"style="color:red"></span>
+                                                {% endif %}
+                                                </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div id="sites_border" class="col-xs-6">
+                    {% for site in patientstroke_data.siteset %}
+                        {% if site.endovascular_administered %}
+                            <div class="caption" style="text-align: center;">
+                                <div class="col-xs-4">
+                                    <h2 id="site_name"><span class="label label-default">{{site.site.code}}</span></h2>
+                                </div>
+                                <div class="col-xs-8" id="site_arrival_discharge_datetime">
+                                    <strong>Arrived:</strong> ({{ site.arrival_datetime }})<br /><strong>Discharged:</strong>({{ site.discharge_datetime }})
+                                </div>
+                            </div>
+                            <div class="col-xs-5" style="padding-right: 15px; padding-left:50px; display:inline;">
+                                <h3 id="acute_imaging_title"><strong>Imaging</strong><br />First Slice</h3>
+                                {% for ai in site.acuteimaging_set.all %}
+                                    <h3 id="acute_imaging_name"> <span class="label label-info">{{ai.acute_imaging_type.name}}</span> </h3>
+                                    {% if ai.first_image_datetime %}
+                                        <h4 id="details">{{ai.first_image_datetime}}<br /></h4>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div id="details" class="col-xs-7">
+                                <h3 id="treatment_title"><strong>Treatment</strong></h3>
+                                <h3 id="treatment_name"><span class="label label-info">Endovascular</span></h3>
+                                {% if site.groin_puncture_datetime %}
+                                    <strong>Groin Puncture</strong>: {{site.groin_puncture_datetime}}<br />
+                                {% endif %}
+                                {% if site.first_reperfusion_datetime %}
+                                    <strong>1st Reperfusion</strong>: {{site.first_reperfusion_datetime}}<br />
+                                {% endif %}
+                                {% if site.tici %}
+                                    <strong>TICI</strong>: {{site.tici}}<br />
+                                {% endif %}
+                                {% if site.interventionist %}
+                                    <strong>Interventionist</strong>: {{site.interventionist}}<br />
+                                {% endif %}
+                                {% if site.neurologist %}
+                                    <strong>Neurologist</strong>: {{site.neurologist}}<br />
+                                {% endif %}
+                                <p style="display:inline"><strong>Processes</strong>:</p>
+                                <table class="table table-bordered table-condensed" id="process_table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Team Pre-notified by EMS</td>
+                                            <td>
+                                                {% if site.stroke_team_prenotified %}
+                                                    <span class="glyphicon glyphicon-ok-sign" style="color:green"></span>
+                                                {% elif site.stroke_team_prenotified == None %}
+                                                    UTD
+                                                {% else %}
+                                                    <span class="glyphicon glyphicon-remove-sign" style="color:red"></span>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Direct to CT</td>
+                                            <td>
+                                                {% if site.direct_to_ct %}
+                                                    <span class="glyphicon glyphicon-ok-sign " style="color:green"></span>
+                                                {% elif site.direct_to_ct == None %}
+                                                    UTD
+                                                {% else %}
+                                                    <span class="glyphicon glyphicon-remove-sign" style="color:red"></span> {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Patient Registered as Unknown</td>
+                                            <td>
+                                                {% if site.patient_admitted_as_unknown %}
+                                                    <span class="glyphicon glyphicon-ok-sign" style="color:green"></span>
+                                                {% elif site.patient_admitted_as_unknown == None %}
+                                                    UTD
+                                                {% else %}
+                                                    <span class="glyphicon glyphicon-remove-sign"style="color:red"></span>
+                                                {% endif %}
+                                                </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+        </div>
+
+        <!--Unique Clinical Trials & Quality Measures-->
+        <div class="row">
+            {% if patientstroke_data.siteset.all.count > 0 or patientstroke_data.uniqueclinicaltrials|length > 0 %}
+                <hr class="style1">
+            {% endif %}
+            <div id="details" class="col-xs-5">
+                {% if patientstroke_data.siteset.all.count > 0 %}
+                    <h2 id="uct_qm_title"><strong>Quality Measures</strong></h2><br />
+                        <ul style="list-style-type:disc">
+                        <li>Dysphagia Swallowing Screen: {{ patientstroke_data.dysphagia_swallowing_screen|yesno:"<span class='glyphicon glyphicon-ok-sign' style='color:green'></span>,<span class='glyphicon glyphicon-remove-sign' style='color:red'></span>,UTD"|safe }}</li>
+                        <li>DVT Prophylaxis:  {{ patientstroke_data.dvt_prophylaxis|yesno:"<span class='glyphicon glyphicon-ok-sign' style='color:green'></span>,<span class='glyphicon glyphicon-remove-sign' style='color:red'></span>,UTD"|safe }}</li>
+                        </ul>
+                {% endif %}
+            </div>
+            <div id="details" class="col-xs-5">
+                {% if patientstroke_data.siteset.all.count > 0 and patientstroke_data.uniqueclinicaltrials|length > 0 %}
+                    <h2 id="uct_qm_title"><strong>Clinical Trials</strong></h2><br />
+                    <ul style="list-style-type:disc">
+                        {% for ct in patientstroke_data.uniqueclinicaltrials %}
+                            <li>{{ct}}</li>
+                        {% endfor %}
+                    </ul>
+                {% elif patientstroke_data.siteset.all.count > 0 and patientstroke_data.uniqueclinicaltrials|length == 0 %}
+                    <h2 style="display:inline">Clinical Trials</h2><br />
+                    <ul style="list-style-type:disc">
+                        <li>No Clinical Trials</li>
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+
+{#        <div class="row">#}
+{#            <hr class="style1">#}
+{#            <div class="col-xs-11 text-left">#}
+{#                <strong>Execution Date/Time: </strong>#}
+{#                <script language="javascript">#}
+{#                    var today = new Date();#}
+{#                    document.write(today);#}
+{#                </script><br />#}
+{#            </div>#}
+{#            <form>#}
+{#                <div class="col-xs-1 text-right">#}
+{#                    <a href="{% url 'patientstroke_pdf' strokeserviceevent.id %}" class="btn btn-warning" style="display:inline">pdf</a>#}
+{#                    <br /><br />#}
+{#                    <button id="rtfbutton" type="submit" name="rtfbutton" class="btn btn-warning">RTF</button>#}
+{#                </div>#}
+{#            </form>#}
+{#        </div>#}
+    </div>
+
+</div>
