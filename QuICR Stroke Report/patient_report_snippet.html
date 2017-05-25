@@ -120,7 +120,7 @@
                                         <tbody>
                                             {% if site.door_to_ct %}
                                                 <tr>
-                                                    <td><strong>Door to CT</strong> (Target = {{patientstroke_data.dct_target_value}} min)</td>
+													<td><strong>Door to CT</strong> (Target = {{patientstroke_data.dct_target_value}} min)</td>
                                                     <td>{{site.door_to_ct}} min</td>
                                                     {% if site.door_to_ct <= patientstroke_data.dct_target_value %}
                                                     <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
@@ -231,6 +231,16 @@
                                         <h4 id="metrics_site_name">{{site.site}} ({{site.site.code}})</h4>
                                         <table class="table table-bordered table-condensed" id="metrics_table">
                                             <tbody>
+												{% if site.doot_to_ct %}
+													<tr>
+														<td><strong>Recognition to Needle</strong> (Target = {{patientstroke_data.ctn_target_value}} min)</td>
+														{% if site.ct_to_needle <= patientstroke_data.ctn_target_value %}
+                                                        <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+                                                        {% elif site.ct_to_needle > patientstroke_data.ctn_target_value %}
+                                                        <td>Not Met</td>
+                                                        {% endif %}
+													</tr>
+												{% endif %}
                                                 {% if site.ct_to_needle %}
                                                     <tr>
                                                         <td><strong>CT to Needle</strong> (Target = {{patientstroke_data.ctn_target_value}} min)</td>
@@ -242,6 +252,17 @@
                                                         {% endif %}
                                                     </tr>
                                                 {% endif %}
+												{% if site.door_to_needle %}
+													<tr>
+														<td><strong>Recognition to Needle</strong> (Target = {{patientstroke_data.dtn_target_value}} min)</td>
+														<td>{{site.door_to_needle}} min</td>
+															{% if site.door_to_needle <= patientstroke_data.dtn_target_value %}
+														<td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+															{% elif site.door_to_needle > patientstroke_data.dtn_target_value %}
+														<td>Not Met</td>
+															{% endif %}
+													</tr>
+												{% endif %}
                                             </tbody>
                                         </table>
                                         <br />
@@ -261,7 +282,7 @@
                                         <tbody>
                                             {% if site.ct_to_groinpuncture %}
                                                 <tr>
-                                                    <td><strong>CT to Puncture</strong> (Target = {{patientstroke_data.ctgp_target_value}} min)</td>
+                                                    <td><strong>Recognition to Puncture</strong> (Target = {{patientstroke_data.ctgp_target_value}} min)</td>
                                                     <td>{{site.ct_to_groinpuncture}} min</td>
                                                     {% if site.ct_to_groinpuncture <= patientstroke_data.ctgp_target_value %}
                                                     <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
