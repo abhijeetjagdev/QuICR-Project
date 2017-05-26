@@ -231,9 +231,11 @@
                                         <h4 id="metrics_site_name">{{site.site}} ({{site.site.code}})</h4>
                                         <table class="table table-bordered table-condensed" id="metrics_table">
                                             <tbody>
-												{% if site.doot_to_ct %}
+												<!-- Inserted this block -->
+												{% if site.door_to_ct %}
 													<tr>
-														<td><strong>Recognition to Needle</strong> (Target = {{patientstroke_data.ctn_target_value}} min)</td>
+														<td><strong>Recognition to Needle</strong> (Target = {{patientstroke_data.dct_target_value}} min)</td>
+														<td>{{site.door_to_ct}} min</td>
 														{% if site.ct_to_needle <= patientstroke_data.ctn_target_value %}
                                                         <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
                                                         {% elif site.ct_to_needle > patientstroke_data.ctn_target_value %}
@@ -252,6 +254,7 @@
                                                         {% endif %}
                                                     </tr>
                                                 {% endif %}
+												<!-- Inserted this block -->
 												{% if site.door_to_needle %}
 													<tr>
 														<td><strong>Recognition to Needle</strong> (Target = {{patientstroke_data.dtn_target_value}} min)</td>
